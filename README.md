@@ -92,6 +92,57 @@ Vivado is a powerful tool for anyone involved in FPGA development, from hobbyist
 
 # UART
 
+![image](https://github.com/user-attachments/assets/ec8d7cf3-c8e2-4e82-8141-787937ba1d1f)
+
+
+UART (Universal Asynchronous Receiver/Transmitter) is a widely used serial communication protocol that facilitates data exchange between devices. Unlike synchronous communication protocols, UART operates asynchronously, meaning there is no shared clock signal between the sender and receiver. Instead, both devices agree on a common data transmission rate, known as the baud rate.
+
+Key Features:
+
+Asynchronous Communication: UART does not require a clock signal for synchronization. It relies on start and stop bits to frame data packets.
+
+Data Frame Structure: A typical UART frame consists of:
+
+Start Bit: A single bit indicating the beginning of a data packet.
+Data Bits: Usually 5 to 9 bits, representing the actual data.
+Parity Bit (optional): Used for simple error checking.
+Stop Bits: One or more bits signaling the end of the data packet.
+Baud Rate: The speed of data transmission, defined as the number of bits transmitted per second. Both sender and receiver must be set to the same baud rate.
+
+Simplex, Half-Duplex, and Full-Duplex: UART can support different modes of communication:
+
+Simplex: One-way communication.
+Half-Duplex: Two-way communication but not simultaneously.
+Full-Duplex: Two-way communication simultaneously.
+No Clock Signal: Data is sent at a pre-agreed speed, making it simpler but also requiring precise timing from both sender and receiver.
+
+UART in SystemVerilog
+
+![image](https://github.com/user-attachments/assets/f781fea7-fd9f-45e9-bbcf-043b653ea31d)
+
+When implementing the UART protocol in SystemVerilog, several key components and considerations come into play:
+
+Transmitter (TX):
+
+Data Register: Holds the data to be transmitted.
+Control Logic: Generates start and stop bits, manages the data transmission rate, and ensures the correct timing of each bit.
+Receiver (RX):
+
+Data Register: Receives and stores incoming data.
+Control Logic: Detects the start bit, samples the data bits at the appropriate time, and checks for stop bits and parity (if used).
+Baud Rate Generator: A timing circuit that ensures data is sent and received at the correct rate. It is crucial for matching the baud rate between the transmitter and receiver.
+
+State Machine: The implementation typically involves a finite state machine (FSM) that transitions through different states such as idle, start, data transmission, and stop.
+
+Error Checking: While UART has limited error-checking capabilities, the parity bit (if used) can help detect simple errors in transmission.
+
+Applications
+UART is widely used in various applications, including:
+
+Microcontroller Communication: For communication between microcontrollers and other devices like sensors, modems, and GPS receivers.
+Debugging and Diagnostics: Often used for debugging systems through serial communication.
+Peripheral Interface: Connecting to peripherals like keyboards, mice, and displays.
+
 
 # I2C
 
