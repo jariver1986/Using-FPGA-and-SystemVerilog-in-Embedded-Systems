@@ -87,3 +87,50 @@ Disadvantages
 Complexity: It can be challenging for beginners due to the wide range of features and tools.
 Resource Intensive: Requires a powerful computer to run efficiently, especially for large designs.
 Vivado is a powerful tool for anyone involved in FPGA development, from hobbyists to professionals in various industries.
+
+# Implementation of Communication Protocols
+
+# UART
+
+
+# I2C
+
+![image](https://github.com/user-attachments/assets/8e2a52e8-62e4-4682-bdfb-79d2a49dbbdd)
+
+Key Features of I²C Protocol
+Two-Wire Interface: I²C uses two lines, Serial Data Line (SDA) and Serial Clock Line (SCL), for communication. SDA carries the data, while SCL carries the clock signal.
+
+Master-Slave Architecture: The protocol follows a master-slave architecture, where the master initiates communication and controls the clock line. Slaves respond to master's requests.
+
+Addressing: Each device on the bus has a unique address, which allows multiple devices to coexist on the same bus. The address is usually 7 or 10 bits long.
+
+Data Transfer: Data is transferred in 8-bit packets (bytes), with an acknowledgment bit after each byte. The data is transmitted with the most significant bit (MSB) first.
+
+Start and Stop Conditions: Communication begins with a Start condition, where the SDA line is pulled low while SCL is high. It ends with a Stop condition, where SDA goes high while SCL is high.
+
+Speed: I²C supports different speed modes, including standard mode (up to 100 kbit/s), fast mode (up to 400 kbit/s), and high-speed mode (up to 3.4 Mbit/s).
+
+I²C in SystemVerilog
+
+
+![image](https://github.com/user-attachments/assets/06d70916-5edb-415e-8de4-64c5cd15daca)
+
+In SystemVerilog, the I²C protocol can be modeled and implemented using hardware description constructs. Here are some key considerations when working with I²C in SystemVerilog:
+
+State Machine: The protocol can be implemented using a finite state machine (FSM) that controls the different stages of communication, such as start condition, address phase, data transfer, acknowledgment, and stop condition.
+
+Clock Generation and Synchronization: SystemVerilog code needs to manage the generation of the clock signal (SCL) and ensure data stability on the SDA line. Timing constraints and synchronization are crucial, especially in high-speed modes.
+
+Data Handling: Handling data includes reading from and writing to the bus, detecting acknowledgment bits, and managing data registers or buffers.
+
+Error Handling: Implementing mechanisms to handle errors, such as no acknowledgment from a slave or bus contention, is important for robust communication.
+
+Testbenches and Verification: In SystemVerilog, testbenches can be used to verify the correctness of the I²C implementation. This includes creating stimuli, checking responses, and ensuring the design meets the protocol's timing requirements.
+
+Applications of I²C
+I²C is used in a wide range of applications, including:
+
+Microcontrollers: To communicate with peripheral devices like EEPROMs, ADCs, and DACs.
+Sensors: For interfacing with environmental sensors (temperature, pressure, humidity).
+Display Modules: For controlling LCDs and OLED displays.
+Communication Between ICs: In complex systems like smartphones, tablets, and other consumer electronics.
