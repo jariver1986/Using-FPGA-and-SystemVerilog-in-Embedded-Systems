@@ -127,7 +127,8 @@ Error Handling: Implementing mechanisms to handle errors, such as no acknowledgm
 
 Testbenches and Verification: In SystemVerilog, testbenches can be used to verify the correctness of the I²C implementation. This includes creating stimuli, checking responses, and ensuring the design meets the protocol's timing requirements.
 
-Applications of I²C
+Applications of I²C.
+
 I²C is used in a wide range of applications, including:
 
 Microcontrollers: To communicate with peripheral devices like EEPROMs, ADCs, and DACs.
